@@ -18,6 +18,7 @@ export const JobPosition: React.FC<JobPositionProps> = ({
   location,
   languages,
   tools,
+  handleAddFilter,
 }) => {
   const badges = [role, level, ...languages, ...tools];
   return (
@@ -55,7 +56,9 @@ export const JobPosition: React.FC<JobPositionProps> = ({
         </div>
         <Stack>
           {badges.map((item) => (
-            <Badge key={item}>{item}</Badge>
+            <Badge onClick={() => handleAddFilter(item)} key={item}>
+              {item}
+            </Badge>
           ))}
         </Stack>
       </div>
